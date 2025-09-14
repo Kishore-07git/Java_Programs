@@ -1,0 +1,43 @@
+import java.util.*;
+class IteratorDemo
+{
+    public static void main(String args[])
+    {
+        ArrayList al=new ArrayList();
+        al.add("A");
+        al.add("B");
+        al.add("C");
+        al.add("D");
+        al.add("E");
+        al.add("F");
+        System.out.println("Original Contents of ArrayList: ");
+        Iterator<String> itr=al.iterator();
+        while(itr.hasNext())
+        {
+            String element=itr.next();
+            System.out.println(element + "");
+        }
+        System.out.println();
+        ListIterator<String> litr=al.listIterator();
+        while(litr.hasNext())
+        {
+            String element=litr.next();
+            litr.set(element + "-->");
+        }
+        System.out.println("Modified Contents of al:");
+        itr=al.iterator();
+        while(itr.hasNext())
+        {
+            String element=itr.next();
+            System.out.print(element + "");
+        }
+        System.out.println();
+        System.out.println("Modified List backwards: ");
+        while(litr.hasPrevious())
+        {
+            String element=litr.previous();
+            System.out.print(element + "");
+        }
+        System.out.println();
+    }
+}
